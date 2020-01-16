@@ -1,7 +1,193 @@
-<html>
-  <title>
-    Portifolio
-  </title>
-  <body>
-  </body>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="/docs/4.1/assets/img/favicons/favicon.ico">
+
+  <title>Portifólio</title>
+
+  <style>
+    .card-body {
+      height: 60px !important;
+    }
+
+    .card-img-top {
+      height: 225px !important;
+      width: 100% !important;
+      display: block !important;
+    }
+  </style>
+
+  <script>
+    function openModal(instance) {
+      let srcImage = instance.childNodes[1].children[0].src;
+      document.getElementById("imagemModal").src = srcImage;
+      $('#myModal').modal('show');
+    }
+  </script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+
+<body>
+  <header>
+    <div class="navbar navbar-dark bg-dark shadow-sm">
+      <div class="container d-flex justify-content-between">
+        <a href="#" class="navbar-brand d-flex align-items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2">
+            <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+            <circle cx="12" cy="13" r="4"></circle>
+          </svg>
+          <strong>Album</strong>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main role="main">
+
+    <section style="width: 100%; padding: 2rem 0 0 0;">
+      <div style="display: block; margin: auto;  width: 74.19vh;">
+        <img class="mr-2 " style="border-radius: 50%; display: inline;"
+        src="https://instagram.ffor17-1.fna.fbcdn.net/v/t51.2885-19/s150x150/78862528_2451586161731113_5848425502032789504_n.jpg?_nc_ht=instagram.ffor17-1.fna.fbcdn.net&_nc_ohc=InrlKCLVmAwAX_kVVxh&oh=40397f0c267f278057d547fb452acb8f&oe=5E9CFC4E" />
+        <div style="display:inline-block; vertical-align: middle;">
+          <h1 class="jumbotron-heading">Portifólio</h1>
+          <p class="lead text-muted">Exemplos de alguns desenvolvimentos feitos por mim.</p>
+          <p>
+            <a href="mailto:ditimarf@gmail.com?subject=Olá,%20vi%20seu%20portifólio%20e%20fiquei%20com%20interesse%20no%20seu%20trabalho."
+              target="_top" class="btn btn-primary my-2">Enviar email</a>
+
+            <a href="tel:+5588994011545" class="btn btn-secondary my-2">Fazer ligação</a>
+          </p>
+        </div>
+      </div>
+      </section>
+      
+    <div class="container">
+      <!-- Modal -->
+      <div class="modal" id="myModal" tabindex="-1" aria-labelledby="exampleModalCenterTitle">
+        <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Visualizador</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <img id="imagemModal" data-holder-rendered="true" width="100%">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    </div>
+
+    <div class="album py-5 bg-light">
+      <div class="container">
+
+        <div class="card mb-4 shadow-sm">
+          <h1 class="jumbotron-heading bg-dark text-white"> Anjos Da Vida</h1>
+          <div class="row">
+
+            <a onclick="openModal(this)" href="#" class="col-md-4">
+              <div class="card m-2 shadow-sm">
+                <img class="card-img-top"
+                  src="https://drive.google.com/uc?export=view&id=1bKB_NABvbgUvJ4o286CFuXl4H9cwWc9Z"
+                  data-holder-rendered="true">
+                <div class="card-body">
+                  <p class="card-text">Tela de Principal</p>
+                </div>
+              </div>
+            </a>
+
+            <a onclick="openModal(this)" href="#" class="col-md-4">
+              <div class="card m-2 shadow-sm">
+                <img class="card-img-top"
+                  src="https://drive.google.com/uc?export=view&id=1d_1NqDP4QPqN0z_3BSvyI3sKKXLAVwNb"
+                  data-holder-rendered="true">
+                <div class="card-body">
+                  <p class="card-text">Tela de visualização de tarefas</p>
+                </div>
+              </div>
+            </a>
+
+            <a onclick="openModal(this)" href="#" class="col-md-4">
+              <div class="card m-2 shadow-sm">
+                <img class="card-img-top"
+                  src="https://drive.google.com/uc?export=view&id=1FzA__rm8E2TXMKDopH7qR4Oj5Xpgo2Qz"
+                  data-holder-rendered="true">
+                <div class="card-body">
+                  <p class="card-text">Tela de cadastros dos alunos</p>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="card mb-4 shadow-sm">
+          <h1 class="jumbotron-heading bg-dark text-white"> Clínica Dr. Edísio</h1>
+          <div class="row">
+
+            <a onclick="openModal(this)" href="#" class="col-md-4">
+              <div class="card m-2 shadow-sm">
+                <img class="card-img-top"
+                  src="https://drive.google.com/uc?export=view&id=1RYxsNGbcR5RRUeImiSJHA0gOhpwh44ee"
+                  data-holder-rendered="true">
+                <div class="card-body">
+                  <p class="card-text">Tela de login</p>
+                </div>
+              </div>
+            </a>
+
+            <a onclick="openModal(this)" href="#" class="col-md-4">
+              <div class="card m-2 shadow-sm">
+                <img class="card-img-top"
+                  src="https://drive.google.com/uc?export=view&id=1SV8WBGb8YY-8oV3HCqneSXvfjEcG3c0i"
+                  data-holder-rendered="true">
+                <div class="card-body">
+                  <p class="card-text">Tela de principal</p>
+                </div>
+              </div>
+            </a>
+
+            <a onclick="openModal(this)" href="#" class="col-md-4">
+              <div class="card m-2 shadow-sm">
+                <img class="card-img-top"
+                  src="https://drive.google.com/uc?export=view&id=1QGbCDLu_weW2oTc2g6FoShVNlbjlYyE8"
+                  data-holder-rendered="true">
+                <div class="card-body">
+                  <p class="card-text">Tela de visualização das consultas</p>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <footer class="text-muted">
+    <div class="container">
+      <p class="float-right">
+        <a href="#">Voltar para o topo</a>
+      </p>
+      <p>Desenvolvido por Ditimar Filho usando Bootstrap</p>
+    </div>
+  </footer>
+</body>
+
 </html>
