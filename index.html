@@ -22,16 +22,128 @@
     </style>
 
     <script>
-        function openModal(instance) {
-            let srcImage = instance.childNodes[1].children[0].src;
-            document.getElementById("imagemModal").src = srcImage;
+        window.onload = onLoadPage;
+
+        function onLoadPage() {
+            var projetos = document.querySelector('#projetos')
+            listaProjetos = [{
+                nome: "Questões PMCE",
+                linkProjeto: "https://play.google.com/store/apps/details?id=com.ditimarf.questoespmce",
+                imagens: [{
+                    descricao: "Tela inicial",
+                    linkImagem: "https://lh3.googleusercontent.com/z16uTkJhMvoNr6JpZdRmHSjcNQtFcN_bRnENwHazLsd5X_90XLtibXJGaD3BG9PQkpcpHHcpEbf_5l_BYFubND9jUaneuqgYtLYVUUI-I0nBUeVXSyAlOuO4TCWE0rBaSf2w6ipwTOOxDbVzci7cQa3icZBK75yQCv5ZCT1c-T4830CeEkhkFLp5BHx2gd-J1tO_JvGOmUa-auw_A65FLTalfwZRGXAat3eiZP_Y82fOQst5qqP7T9_rwMmg8-YEpPnjRcwMaaGSsGhJNqVUsElLyMqEl-_cZ07srm63AC04LuWVECqgfDuR4XMt5JgXukLM1Oqf9uaaSYMhRp3KkLRVxhqRBUpju1ISuD5iX5qNfsTAZ65lWnb1E1XSTtjaLH8nl0h0Csqsj5P-pZSUDHnXoe48F4iwdQAcASGYpPH-pPrlY5LgRENIGoalDmM0HQRKsnS5OPG8MM28UYpknO8krVIAtswwhGNLr8Z3LfiKA509zyISpC59gAHxGtC0W8PPFVTdEEcY_hA4su4AiodUIu6MEqVEdAJA4wDqOqpFuVZg3k9eqGraVwpr8C2e5beP4poPURGu31Y1Oja7EDX7sOvPWERWHhe_WXzGk4AkNfDzdCKdJlgF6QCYnME0FMRJknaBNEdcUQBhhSPIgZazpUd49BO_S9kyLPkswaCzKw1AXwma0w=w338-h325-no"
+                }, {
+                    descricao: "Tela de pergunta",
+                    linkImagem: "https://lh3.googleusercontent.com/z16uTkJhMvoNr6JpZdRmHSjcNQtFcN_bRnENwHazLsd5X_90XLtibXJGaD3BG9PQkpcpHHcpEbf_5l_BYFubND9jUaneuqgYtLYVUUI-I0nBUeVXSyAlOuO4TCWE0rBaSf2w6ipwTOOxDbVzci7cQa3icZBK75yQCv5ZCT1c-T4830CeEkhkFLp5BHx2gd-J1tO_JvGOmUa-auw_A65FLTalfwZRGXAat3eiZP_Y82fOQst5qqP7T9_rwMmg8-YEpPnjRcwMaaGSsGhJNqVUsElLyMqEl-_cZ07srm63AC04LuWVECqgfDuR4XMt5JgXukLM1Oqf9uaaSYMhRp3KkLRVxhqRBUpju1ISuD5iX5qNfsTAZ65lWnb1E1XSTtjaLH8nl0h0Csqsj5P-pZSUDHnXoe48F4iwdQAcASGYpPH-pPrlY5LgRENIGoalDmM0HQRKsnS5OPG8MM28UYpknO8krVIAtswwhGNLr8Z3LfiKA509zyISpC59gAHxGtC0W8PPFVTdEEcY_hA4su4AiodUIu6MEqVEdAJA4wDqOqpFuVZg3k9eqGraVwpr8C2e5beP4poPURGu31Y1Oja7EDX7sOvPWERWHhe_WXzGk4AkNfDzdCKdJlgF6QCYnME0FMRJknaBNEdcUQBhhSPIgZazpUd49BO_S9kyLPkswaCzKw1AXwma0w=w338-h325-no"
+                }, {
+                    descricao: "Tela de pergunta",
+                    linkImagem: "https://lh3.googleusercontent.com/dUh37J9wWFDJ6hagcrr7mjeuj1fqCuq8tyouIM2FbOcZCUlUaK9YY0D5VPasKO8Y6vK_FPa3tbB9F8Z7xm9eP2ob201uoczVoSPGjO3Aw6_M39fxcx-7PyfrrTXX3yy4Sms56oQg3NP8MubO_eFN-JCpDoE-u79JWqWUPLYNQwstV-00tjJ6B2M70sGFsdkv-nwn5q_y46qCDeYtzJBuSzSqFgARwxtDSY4B-iKP2PKOyrKclBeOlAo5Qmd_tqJn1UMfi7DJYjKH9FnaKKkw2acHqXT5mt5WlsToI77iEp__1ZOIa45XJrKO05BUzno0POeQEpI10YbjlwhdVXiuZPIB5BSEqjMxC6WHyl6OwMOsCRpCRoUDjlmLfNZMzZG0Aj84_HEMUTrJsBSCwprUSUM4I3_pS6XNCK5bsErP0llNW2zE83sHhvoAXee7uzPUS4qwsIzFMztEdc0mCg6Bqr-gOtbXmWFiHLUwHYvgI6H7ruNzzhx8KjZH08yJJxcxh2QoEsAN8mo9s-y-TfWRCOryCB-4HMvWtzajHYts-_Yn9ivh870hmAAfRUat131pRw91OOdWRglglN6BiSCrgH-YJBUxucVeoFsJPSp7MNk7CarnMvKDgkXNuJkAILI7179ZSkkfV4XkEZ_4xJpzc7XXiudA18G3TNPBXdqWg2M-WXa5a7WBLQ=w621-h600-no"
+                }]
+            }, {
+                nome: "Transgressões Disciplinares",
+                linkProjeto: "https://play.google.com/store/apps/details?id=com.ditimarf.transgressoesdisciplinares",
+                imagens: [{
+                    descricao: "Tela de pergunta",
+                    linkImagem: "https://lh3.googleusercontent.com/QCfVsNas3O9545s317YNu4cq4VMUIJKNnao8PLqIXEI48SvCckFMz6IAJbcQR9y0DbM6q5BTd1oioS51FVoti9QzCIKy8ZfJKf67yha4NnOTHqyNE4xG2_Tz9eD4cXAX8ym5oC6NqCsQm2scy8Fz6n6NvcQzJ6JW_zjZMhoQudFTCHufydj5JnRWwhcUj-UGCda1pYjLihX70DZ8oNocxCVNfGSIZos41vA6HvVpOb1DGgJ_T3pdF2rg-lIQCQgdiE33FBtsX7t4auW4LVhINl572naKH5rBYVCVRVhl1tNYDTYrbhzh5BPmXFsq6KUPqGd2JMdRP1j0hyEn-a6BkeOhHlY8Je1Ud0qB4G_ee0OoLO0e-uSpoY-D86_CNfoUkDbqHjGNWL8TOGDHjMm5ykOCYgwnRemY5pPKlrYShRfFO_ZyNXVoRTHZzsNP8AHm6xSzl6rFvTLx-OEM4N7jQKZ-tdZshyAM6arWJw0kjrWlmCFQ5N-oFGFHWbwXJxs_t7o5bPJLgdUy-a5Yh90P8FMNobR2vxVd3JqsSfNmlNpIyInNSMcjBu28q-R7jseyHewCkWIw92tQxydGiBCO1U-IHR2WAgnKZs4afEYntsoB9wkYwrwSNEbs0-sQkq0le7Hi_YtkH2cYxv0WITQ6-VD4pPfoLSpKxsIoTisZ6YT53-dAwypmyA=w718-h600-no"
+                }, {
+                    descricao: "Tela de resposta certa",
+                    linkImagem: "https://lh3.googleusercontent.com/a9NF9a4PTiea_dx5-kl3q-F1TN9y-QrH9cmXfAj9b5E40aWQgtJGjzmQqDhSXyoAevJPBJJjITtZmuykwYISKVcsaX_4RXGMS1vcM9SqjTP32SlhJ9Hm9OMXvlmabnc8q1mNm9KSwMqviaXmKmR_tfa7b69MkiFifCYc82gBXxjcQTQ-7NAEkI7SPGRb3BUXllGwXXRP5pkgq3XSACPJ9fZCkcjqnRAoEN0rtUYQw911d7j_bpigYY3XFtiW_rdalotPIgoD306qBP0Q971lscLogs2PxQK33ZozsS1NYp526THyQE0gEF_SBpxvG_Nb5VfzMl45xsa85i3yxNdI1ospp_2_mJ7y1_SazpkhXVvO9I6FkiAMUw2qZLr6wbpH1It57xeHaQylJxSGiAH2wxt1S_tMW0UUavAZbj0MxTQHacU5k0C88reqdQog24qxS2DsqAsDe9eEA6ftsdtfwg9OpVAj0iBZQffj7dYonYgIANj-HWnT4Tnblv3GJDZnJnDSIt6_P2eZbGUSE_IQOqb8dTC6urPL3_UEQv_TXtitPXYIqHOje4XGBnd3HCcEBrwZF9CwlWl37GDabUbrDKLuDxZ2_Id7p9oFExsoQUqllUAx8DbkAKvt4WKLqgtu5b36N2bpsqf944qfDM9HFjkxuH1lASVrw6cpavxiYOQa98yLdy4kLQ=w726-h600-no"
+                }, {
+                    descricao: "Tela de resposta errada",
+                    linkImagem: "https://lh3.googleusercontent.com/1Z0Z6SteMEW8OBlRzHX3X3ccmslDM2Rr-9IXpehRA_IY-Zj9RosyBf61dq-E5ZYqZHDmBKmNyeHkZXrFa-MAF4ybOEASB9hj9kjJ4kOz0OlDyfByNfTFup_Bqw3l0EP1FbSC5akgXyKISevQr9Lv0N7qNywnyic7yeBhRflBS9SZz8Qrd3apcofth4yXmfHjQeAkjFHNmSWKvtMTVoTw4kxq7m0xSt-_6NWwUf3TkrwlZ7D5UvxCburBuVfh8SpzNoonquUGdSlvLOdcg2I9JnIBPZcmjtAsDbl2SYSgLkcl5GripMmePzTyF_uqaIZsitdXwWGMzsA4vo82Xyv7voZfQXye_B944VuKQe4tcNl4fbwqBM0PULFk8772Xs1SsCsmqZEvu_3VM3jzz_I0njAihRnf_wUwm0JQpeu-nIMf9ZkkuJ9iP1APrUvgZl0Yy4I3RUg3lU0HBLY3dXin5yoikYXaXflounumKJVVH7bs077Cas7ysK9hFzGmyhHcLiMXrsdrsZKDJAWE0wZ4WwvkJarD0SfVmTZJSuoMZDNTsOd5tojn4eiCRE1Pg_39H5Hw8IzpTwdl7XfS1CXWZlbyNJrR998dZZjeAJbMRWU6QYKsenNg5vrFv0j-a9x2sJcwRdrgGvHdDWNcvx5OVriH3fES2smB6h26PHUGh2r6lPBZC4--_Q=w713-h600-no"
+                }]
+            }, {
+                nome: "Anjos da Vida",
+                imagens: [{
+                    descricao: "Tela Principal",
+                    linkImagem: "https://lh3.googleusercontent.com/Fln3XMFGpxqS_HmlIyjOE8gh-DuDuqvTRAY8n_e1QlLhWyMq0kopuNYDHXb6z9EQ3BtpSI0aTiw2oMrcAGo6y9EhElMMcX04iafIzURbG75MElfbODgkraxZOXDsxeFOOf39G0X0Ot8tFZyMfr7i7QqPc_uBm1pTnWT6t-9YKb8YuQayVuRjpm-ikZL3Ilcs9tnGyzY7Z8cUDrn5Yr_Cp9MrYHFup7rm2NfPpBVqxs9PHpIUvgs1QebrS_IL03BJkAAUZGf-u1j4exAwA3LKr2dj6TX9YuCfjYudlrieMCo0E3OcBMwJ6oSAkLlZDbjiM_YzG6nEHLAd7Tf4nt_f9rghdgu_2XEcAPvPFDnyOoyjMscWTX24Pm-5cs7KuQ67SCdUWZ5oHcZ0ZhQasexWNgepx9uKZwWQZb37e1wvtjjMxsqCWnOntDL8oGefvZn_1sceaCf8D8tZ2u8dyctF0M8L-MTsRhHQdeJr5cAxt83o8KA7e7fRJipDkBgrbahuQXLh0PA6hftQvdINwJFcteO9lHdDDDD5g3J5W1Na2rmtiGUaGbFKVMwTzIuMPze8hYh8NSoLp4ZVRZRymhr2sY7VapaIGFQLJI4G_laqfl1rCfwQC_GJCs3SBgpSfr9yJAwQdRoRLBZAU0aFOWwcCRo2J2gYrQAjbrXeWUfmUar2_Dda4trwAQ=w800-h450-no"
+                }, {
+                    descricao: "Tela de visualização de tarefas",
+                    linkImagem: "https://lh3.googleusercontent.com/5HmTBuZbnpYe2-8NBYUxhok1BNzVect_fvkNlTVkZb9RXSQSV3DhfZ-Iy_xQWD4dJ1CgkjJMy3nfAd-m3MdxmawmwbA0FEABjQNdAg6mrIHL9j20SfWrH1N0IXXsCVCGfJDKfezDWfDn9FCK-CQCLoOfbIKHkje6fBcNoo1O4yVTQMqCBsrjR-A8_bq3AXi51hI-_ieN4VS2KPdZ8KfEzVBdsNqK-ZQtC32Uw-usC9oeOH9qfR6C0ACG-lwLPjlwyIhIn0mnkhZ-qGllYDYX_ZirqjI883LM_WtWZL7W8d_F19K9AiaHEubOrtdK7QXgkSVwMj9-voqn12u6sQNl3rbMUge44RGs0ZMKP9uP-3QpdihcTp3muws-eSpFB4hAZeSIGWy-8Wu3o4N6c6ghHdx2c9rrXstGogOb6DSlwdULfK1hZoOcCcExD448B1QVT8NsPliEmY0GQGDl5GQr7s-gGkZ8FjQkcORzf60RrGOOcmiZ5kqdXhq18WBqSUDjrEw_VcKVbWFbS7voaXnVxGjEH_fC70_2Xrz8G21RuXnPHxmlBvGxsQgYBQ5zb1cKe8cMX6CatJ0GzOm22-wi-xFftKVl5msnXcXLs_F0IREw4mM_pJFIs3Y1L0PLeqKz-CMC20bDq-qymKY9_77wVYI-sKuVwZsK9Wt_tadv57dxdwNav9aCeQ=w800-h450-no"
+                }, {
+                    descricao: "Tela de cadastros dos alunos",
+                    linkImagem: "https://lh3.googleusercontent.com/JeEY4n8vgD8fk16rFQQJTond2qPz_lzOl1CkNjcY_kMIPmpppZQSGFVPX4hJJUW9u2oQXcmTSh7gAaGq71Qay6rNPrfEqNjMudZNqQfhxOfQ39bjdZY6_imJ_BknI5SIGKgyaWP2bk6HqpI7ota339rZo2GPgiB4KL8nErEKxvDm6pjSdWdTzsuc8pBdKV7L_xzNeQtS0YqRJV0_lnIEN-YlCzpMufy4zWvHgWuQvJCb_W0kXWLXYWCeQuaG5IJV9BEfncNeDHiRYwEo7ypf8hPLMKVHCFM1Jzs5PZ1LSiLyVZkgEcV5jBt7ZWmz-pyGW_hzt_sYyqR8tRWH46gzcqIntTqQGiPoFKjbm-e3ebQLnPr9mkX_rP0yfYtjTZaYmtCfznMuic47oPToRA0DEhSkHbvXL1cBCfT3qm7PpfTzYqpvJMi47mTpvZ4ulYfxoml3J1GYmLwexxU2Qv95QpJVoxqMudGuHMy-zPP32k6p88mLd7OrBFJzdfMA_4bPYM2LGGeFP01X4Os8HzHI-MdLr5vn13x0PXljVXGDr4RJVOmvI5VJlHo37eYBKULPhFY5NvOEywbLuNRvFjeDpAUH0xd2Im0sRIWdjy-FIXdQf_eyd2P8P0AT1OSzgR_UGbO5bT3fAqpxGLSYt8q4Y9lhbKVgT8kjyhJi5zXneQk27kXaid_AFQ=w800-h450-no"
+                }]
+            }, {
+                nome: "Clínica Dr. Edísio",
+                imagens: [{
+                    descricao: "Tela de login",
+                    linkImagem: "https://lh3.googleusercontent.com/t2P0NFUg8hrVrH1gqWN2wOERVYzmeyEXSooU78nWGUPebrgj2ALxhEsjnqYZARysJrPXncFebtY1m2wz4ixXtD3ktwGMPeAmsLXYOtHWF8WsvkLRazfyHrAxP3MjEdHB0NeIi3SfPUnronTlzQcWWDbuJ0GR6epTvr4IzfCmHVAlHo5mvV4bTKQmgbuX1EUMYoiP3S5BmY7njHKA-l-urexQrANX7QQfpgOBB4vl-6jjBE6VPQaY5sDp6JM4QCEIzuN1Lez5XRF13ePgWQi9gHwBJe689wRa8YXPTKsifGEAXztTcWeX6P-fdDUyiwUzswZ6cMrVUDP7klc99yxEQ4wxQlDE5nOpkU0q15M2DOzBlK4vMBPySr280sTgCA8CaIFkeVsFHLZmcEXPoi-4B4zSoYEDoBVLY-eKH4ZWZ65XlvRS-Dcoeafpuo2U5bMkm9jhIsMiJ576ApxpQ2bmT7NFIIcul1cG5aQPIPDQfbmbl_40E5_owIvsnqmZjgHtzMccPmOQW8ThsiQdJ6uO9stpiEo_2dqtB-mGuR9anW3hJn89B7j-rE9UYvi8qWI9sxb9EpL5UUhOyrEEY3aCN5Ua-B49efv4-2Nh4KPTX0zNByg4WXh_vM36ZDNOke1BDQ073LEGNVvIrXU91XGSa8R8Uhb0rpV4h2K1C9bgqr_IkkKfl6Ek-g=w800-h450-no"
+                }, {
+                    descricao: "Tela de principal",
+                    linkImagem: "https://lh3.googleusercontent.com/npMrg-22SFotqZiAomjWChlIIcyBsl09qIhtOGQX-uT_KU7xDOEZVeaA0JRMxy08nqRbI5rVmkWs1vFY-OP2Df8yxCzdYto8FsCYpDLZwASfVCnbCMjnz77fOtEH4EO0F6jGVYCavpOiamLxcdmD37hHglvbe_8QZzlxZgeeTE0O44m4xDNzeTzqkEzA7idgxIvlruFPweYOsW74rYWGXPLGnTaeZsPjFmOXu0O3Fj2NL7b_Ois36dX7mJI19qr9yqRYsKR-TU9rYrfx1D03kG7YflRC-jg-v-t3T8GLHRyGMcdqkkuimhGXLYrFUl7CleSGu1pcDJZixoEtdCcfTJhmL2rBJbag1NYNh3SX4g66rvfFLvHcmj_a6OuiXq8qb-gu6ok35ZrXZFcvteDQrijzwZBE4vCdY8fBfBN-jyirm4W9s-qLYivThTYTdj5iJMweudOV2ddF1ZAPYLex0M8aNGWuM2ZnTO93wwysJ4g6pwvLyQV7AdujaSb_OQ_fR5sCFoNjfKpnuICQycfauqq8K35TpGPD6kA8zQdwrFUnEmWtt7qcxyCCQGW9UAXLkJXJtcX7bAPh_79mz1txXHm4sh2NnbURIMqJlXyIx9f-brugtFYJECHwdUt9NZeloTOLv7zSRPuNemnmx5CNSQRygjAmTfnxwwnxRbpC7h0E7ATuUmkX6w=w800-h450-no"
+                }, {
+                    descricao: "Tela de visualização do paciente",
+                    linkImagem: "https://lh3.googleusercontent.com/Gsua17hAqnfGE_Z6bdopCcijT8yA9m4d2nlERwSFo8o1CjhSXvfy4_VC4zk2yq3VaDYCtzikFUQfvCw4kzpSRf3t9S9l9lWwWeGtA_mOHBsiFNEawEhaaLwu1t5dnBO6nMC2c4hjtwrw-OQ7QvEtNLKNRZokch_6-qLqwIW55rKnnKul6dZRXqjso9u4q-0mAute24doV6PJcyFS1nibTQ1EVS5g-lJuuQIacAwS-JpdGhZJkOxlZpFerxrVEkBrPwzaGJ5noMibtlmDSnoEJ4bcs7kxp_QI-n1eAC6rsjnW_AB7vPEPWj6_gDqKHnWP7rjyg69TI38GrtnnsjWc-HWriySeD1qzIUDA2bn3hyWnAy5kt0UG0igrzu1PAmysz8oixwwpVJI4W-O4SXsJsBPwxLqf5s9tY3Tic3lBwU39QIr4T45yu2S9wqMOQtSeMRzxXNj83F0FBcYlU7nW6KC-jgcUQAIvlz3C8i4uZC9uzeTdyFHZ4v6Oc0FdSriyPr6LI2NSMtXsWqf8aC5HuN-0MIJyaJFvCUE7gTFBgQoaF64fyhB4gdZJybEVCOq8za9yfYegxpxConmbyYve6EBN2ft4s9WZNKCHG6vJshtAKjZ9K3d6-5rB-dz7h6sTMFdMh81UXc_D6v_BiDETEZhvIqt6lo6Ub_hufGB7YkXcT4udiwNmJQ=w800-h450-no"
+                }]
+            }]
+
+            listaProjetos.forEach(p => projetos.appendChild(criarDiv(p)))
+        }
+
+        function criarDiv(p) {
+            var divPai = document.createElement('div')
+            divPai.classList.add("card", "mb-4", "shadow-sm")
+            divPai.setAttribute("style", "background-color: lightgrey")
+
+            var aPai = document.createElement('a')
+            aPai.target = "_modal"
+            if (p.linkProjeto != null)
+                aPai.href = p.linkProjeto
+
+            var h1 = document.createElement('h1')
+            h1.classList.add("jumbotron-heading", "bg-dark", "text-white")
+            h1.innerText = p.nome
+
+            var divFilho = document.createElement('div')
+            divFilho.classList.add("row")
+
+            aPai.appendChild(h1)
+            divPai.appendChild(aPai)
+
+            p.imagens.forEach(i => {
+                var aFilho = document.createElement('a')
+                aFilho.classList.add("col-md-4")
+                aFilho.setAttribute("href", "javascript:void(0)")
+                    //aFilho.href = 
+                aFilho.onclick = function() {
+                    openModal(i.linkImagem)
+                }
+
+                var divNeto = document.createElement('div')
+                divNeto.classList.add("card", "m-2", "shadow-sm")
+
+                var imagem = document.createElement("img")
+                imagem.classList.add("card-img-top")
+                imagem.src = i.linkImagem
+                    //imagem.setAttribute("data_holder_rendered", true)
+
+                var divBisNeto = document.createElement('div')
+                divBisNeto.classList.add("card-body")
+
+                var p = document.createElement('p')
+                p.innerText = i.descricao
+                p.classList.add("card-text")
+
+                divBisNeto.appendChild(p)
+                divNeto.appendChild(imagem)
+                divNeto.appendChild(divBisNeto)
+                aFilho.appendChild(divNeto)
+                divFilho.appendChild(aFilho)
+            });
+
+            divPai.appendChild(divFilho)
+            return divPai
+        }
+
+        function openModal(url) {
+            document.getElementById("imagemModal").src = url;
             $('#myModal').modal('show');
         }
     </script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 
@@ -43,7 +155,7 @@
                 <a href="#" class="navbar-brand d-flex align-items-center">
                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="mr-2">
             <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
-            <circle cx="12" cy="13" r="4"></circle>
+            <circle cx="12" cy="13" r="4"/>
           </svg>
                     <strong>Portifólio</strong>
                 </a>
@@ -110,156 +222,7 @@
         </div>
     </div>
 
-    <div class="album py-5">
-        <div class="container">
-            <div class="card mb-4 shadow-sm" style="background-color: lightgrey;">
-                <a href="https://play.google.com/store/apps/details?id=com.ditimarf.questoespmce" target="_modal">
-                    <h1 class="jumbotron-heading bg-dark text-white">Questões PMCE</h1>
-                </a>
-                <div class="row">
-
-                    <a onclick="openModal(this)" href="#" class="col-md-4">
-                        <div class="card m-2 shadow-sm">
-                            <img class="card-img-top" src="https://lh3.googleusercontent.com/z16uTkJhMvoNr6JpZdRmHSjcNQtFcN_bRnENwHazLsd5X_90XLtibXJGaD3BG9PQkpcpHHcpEbf_5l_BYFubND9jUaneuqgYtLYVUUI-I0nBUeVXSyAlOuO4TCWE0rBaSf2w6ipwTOOxDbVzci7cQa3icZBK75yQCv5ZCT1c-T4830CeEkhkFLp5BHx2gd-J1tO_JvGOmUa-auw_A65FLTalfwZRGXAat3eiZP_Y82fOQst5qqP7T9_rwMmg8-YEpPnjRcwMaaGSsGhJNqVUsElLyMqEl-_cZ07srm63AC04LuWVECqgfDuR4XMt5JgXukLM1Oqf9uaaSYMhRp3KkLRVxhqRBUpju1ISuD5iX5qNfsTAZ65lWnb1E1XSTtjaLH8nl0h0Csqsj5P-pZSUDHnXoe48F4iwdQAcASGYpPH-pPrlY5LgRENIGoalDmM0HQRKsnS5OPG8MM28UYpknO8krVIAtswwhGNLr8Z3LfiKA509zyISpC59gAHxGtC0W8PPFVTdEEcY_hA4su4AiodUIu6MEqVEdAJA4wDqOqpFuVZg3k9eqGraVwpr8C2e5beP4poPURGu31Y1Oja7EDX7sOvPWERWHhe_WXzGk4AkNfDzdCKdJlgF6QCYnME0FMRJknaBNEdcUQBhhSPIgZazpUd49BO_S9kyLPkswaCzKw1AXwma0w=w338-h325-no"
-                                data-holder-rendered="true">
-                            <div class="card-body">
-                                <p class="card-text">Tela inicial</p>
-                            </div>
-                        </div>
-                    </a>
-
-                    <a onclick="openModal(this)" href="#" class="col-md-4">
-                        <div class="card m-2 shadow-sm">
-                            <img class="card-img-top" src="https://lh3.googleusercontent.com/C1og-wTtrQuAYo2_PoLSeRve9skY7b87rLKJu4CPJtPTYrhhm_4RiO3Wor6xGoIqT4AVhI1VVRLVO6EpruVkhv2Xs-4kQYA8DyV48WX16adJVB1wxCRHbVqKSuvx3kEt1KxvS780MwGYIEjH6a4so143LRXMeefyz7WslzlSgjtHNuFTDCMgGaVYAKDPn_4bR-LYpQduajalAmzwreIGTgA9h1yQ40Pox7a8S3O80oq1-VZQ51P9uOcHOo9Hac8ZwluaB3Af16dxDPocvkQV4jRkhosp3u-_plpVAF-BlanloqIoTBOILPOprYgAJ10pCfNF75O7NyDbLZILmcDrvAxnJTRQ5BZpgV5guimbdOf_5oyBLZD9vJgQOhL5J-WcoSt1Mh5XgMOqv0FSBHaySOVylqvz2zNJ17VW0hiAFA2Xi6wqWj4iKRF05Indc5IUfH49Gem_LzE7DeSJJR87ESOMvLZpdutD1gxl2ldk-ll7mRWH9yYZV_6i3igOvIGN6X8NiZKXfJ1mvSwNNS6ezTtMDT5vAh5sKD5kvqYg40iZjrIMzm5i900jVLkkCsnNDGwnc_0uiYKGW_kDIdNIHAHdfD-ZIrbMqtFJElscTBehpmmONxUvJeT6C05rfXIzMVDV3llN_SEV3zL1yyITVJgdZxNclbiaFVMvHcmU27EjpzWtVrxTWw=w621-h600-no"
-                                data-holder-rendered="true">
-                            <div class="card-body">
-                                <p class="card-text">Tela de pergunta</p>
-                            </div>
-                        </div>
-                    </a>
-
-                    <a onclick="openModal(this)" href="#" class="col-md-4">
-                        <div class="card m-2 shadow-sm">
-                            <img class="card-img-top" src="https://lh3.googleusercontent.com/dUh37J9wWFDJ6hagcrr7mjeuj1fqCuq8tyouIM2FbOcZCUlUaK9YY0D5VPasKO8Y6vK_FPa3tbB9F8Z7xm9eP2ob201uoczVoSPGjO3Aw6_M39fxcx-7PyfrrTXX3yy4Sms56oQg3NP8MubO_eFN-JCpDoE-u79JWqWUPLYNQwstV-00tjJ6B2M70sGFsdkv-nwn5q_y46qCDeYtzJBuSzSqFgARwxtDSY4B-iKP2PKOyrKclBeOlAo5Qmd_tqJn1UMfi7DJYjKH9FnaKKkw2acHqXT5mt5WlsToI77iEp__1ZOIa45XJrKO05BUzno0POeQEpI10YbjlwhdVXiuZPIB5BSEqjMxC6WHyl6OwMOsCRpCRoUDjlmLfNZMzZG0Aj84_HEMUTrJsBSCwprUSUM4I3_pS6XNCK5bsErP0llNW2zE83sHhvoAXee7uzPUS4qwsIzFMztEdc0mCg6Bqr-gOtbXmWFiHLUwHYvgI6H7ruNzzhx8KjZH08yJJxcxh2QoEsAN8mo9s-y-TfWRCOryCB-4HMvWtzajHYts-_Yn9ivh870hmAAfRUat131pRw91OOdWRglglN6BiSCrgH-YJBUxucVeoFsJPSp7MNk7CarnMvKDgkXNuJkAILI7179ZSkkfV4XkEZ_4xJpzc7XXiudA18G3TNPBXdqWg2M-WXa5a7WBLQ=w621-h600-no"
-                                data-holder-rendered="true">
-                            <div class="card-body">
-                                <p class="card-text">Tela de resposta errada</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-
-            <div class="card mb-4 shadow-sm" style="background-color: lightgrey;">
-                <a href="https://play.google.com/store/apps/details?id=com.ditimarf.transgressoesdisciplinares" target="_modal">
-                    <h1 class="jumbotron-heading bg-dark text-white">Transgressões Disciplinares</h1>
-                </a>
-                <div class="row">
-
-                    <a onclick="openModal(this)" href="#" class="col-md-4">
-                        <div class="card m-2 shadow-sm">
-                            <img class="card-img-top" src="https://lh3.googleusercontent.com/QCfVsNas3O9545s317YNu4cq4VMUIJKNnao8PLqIXEI48SvCckFMz6IAJbcQR9y0DbM6q5BTd1oioS51FVoti9QzCIKy8ZfJKf67yha4NnOTHqyNE4xG2_Tz9eD4cXAX8ym5oC6NqCsQm2scy8Fz6n6NvcQzJ6JW_zjZMhoQudFTCHufydj5JnRWwhcUj-UGCda1pYjLihX70DZ8oNocxCVNfGSIZos41vA6HvVpOb1DGgJ_T3pdF2rg-lIQCQgdiE33FBtsX7t4auW4LVhINl572naKH5rBYVCVRVhl1tNYDTYrbhzh5BPmXFsq6KUPqGd2JMdRP1j0hyEn-a6BkeOhHlY8Je1Ud0qB4G_ee0OoLO0e-uSpoY-D86_CNfoUkDbqHjGNWL8TOGDHjMm5ykOCYgwnRemY5pPKlrYShRfFO_ZyNXVoRTHZzsNP8AHm6xSzl6rFvTLx-OEM4N7jQKZ-tdZshyAM6arWJw0kjrWlmCFQ5N-oFGFHWbwXJxs_t7o5bPJLgdUy-a5Yh90P8FMNobR2vxVd3JqsSfNmlNpIyInNSMcjBu28q-R7jseyHewCkWIw92tQxydGiBCO1U-IHR2WAgnKZs4afEYntsoB9wkYwrwSNEbs0-sQkq0le7Hi_YtkH2cYxv0WITQ6-VD4pPfoLSpKxsIoTisZ6YT53-dAwypmyA=w718-h600-no"
-                                data-holder-rendered="true">
-                            <div class="card-body">
-                                <p class="card-text">Tela de pegunta</p>
-                            </div>
-                        </div>
-                    </a>
-
-                    <a onclick="openModal(this)" href="#" class="col-md-4">
-                        <div class="card m-2 shadow-sm">
-                            <img class="card-img-top" src="https://lh3.googleusercontent.com/a9NF9a4PTiea_dx5-kl3q-F1TN9y-QrH9cmXfAj9b5E40aWQgtJGjzmQqDhSXyoAevJPBJJjITtZmuykwYISKVcsaX_4RXGMS1vcM9SqjTP32SlhJ9Hm9OMXvlmabnc8q1mNm9KSwMqviaXmKmR_tfa7b69MkiFifCYc82gBXxjcQTQ-7NAEkI7SPGRb3BUXllGwXXRP5pkgq3XSACPJ9fZCkcjqnRAoEN0rtUYQw911d7j_bpigYY3XFtiW_rdalotPIgoD306qBP0Q971lscLogs2PxQK33ZozsS1NYp526THyQE0gEF_SBpxvG_Nb5VfzMl45xsa85i3yxNdI1ospp_2_mJ7y1_SazpkhXVvO9I6FkiAMUw2qZLr6wbpH1It57xeHaQylJxSGiAH2wxt1S_tMW0UUavAZbj0MxTQHacU5k0C88reqdQog24qxS2DsqAsDe9eEA6ftsdtfwg9OpVAj0iBZQffj7dYonYgIANj-HWnT4Tnblv3GJDZnJnDSIt6_P2eZbGUSE_IQOqb8dTC6urPL3_UEQv_TXtitPXYIqHOje4XGBnd3HCcEBrwZF9CwlWl37GDabUbrDKLuDxZ2_Id7p9oFExsoQUqllUAx8DbkAKvt4WKLqgtu5b36N2bpsqf944qfDM9HFjkxuH1lASVrw6cpavxiYOQa98yLdy4kLQ=w726-h600-no"
-                                data-holder-rendered="true">
-                            <div class="card-body">
-                                <p class="card-text">Tela de resposta certa</p>
-                            </div>
-                        </div>
-                    </a>
-
-                    <a onclick="openModal(this)" href="#" class="col-md-4">
-                        <div class="card m-2 shadow-sm">
-                            <img class="card-img-top" src="https://lh3.googleusercontent.com/1Z0Z6SteMEW8OBlRzHX3X3ccmslDM2Rr-9IXpehRA_IY-Zj9RosyBf61dq-E5ZYqZHDmBKmNyeHkZXrFa-MAF4ybOEASB9hj9kjJ4kOz0OlDyfByNfTFup_Bqw3l0EP1FbSC5akgXyKISevQr9Lv0N7qNywnyic7yeBhRflBS9SZz8Qrd3apcofth4yXmfHjQeAkjFHNmSWKvtMTVoTw4kxq7m0xSt-_6NWwUf3TkrwlZ7D5UvxCburBuVfh8SpzNoonquUGdSlvLOdcg2I9JnIBPZcmjtAsDbl2SYSgLkcl5GripMmePzTyF_uqaIZsitdXwWGMzsA4vo82Xyv7voZfQXye_B944VuKQe4tcNl4fbwqBM0PULFk8772Xs1SsCsmqZEvu_3VM3jzz_I0njAihRnf_wUwm0JQpeu-nIMf9ZkkuJ9iP1APrUvgZl0Yy4I3RUg3lU0HBLY3dXin5yoikYXaXflounumKJVVH7bs077Cas7ysK9hFzGmyhHcLiMXrsdrsZKDJAWE0wZ4WwvkJarD0SfVmTZJSuoMZDNTsOd5tojn4eiCRE1Pg_39H5Hw8IzpTwdl7XfS1CXWZlbyNJrR998dZZjeAJbMRWU6QYKsenNg5vrFv0j-a9x2sJcwRdrgGvHdDWNcvx5OVriH3fES2smB6h26PHUGh2r6lPBZC4--_Q=w713-h600-no"
-                                data-holder-rendered="true">
-                            <div class="card-body">
-                                <p class="card-text">Tela de resposta errada</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-
-            <div class="card mb-4 shadow-sm" style="background-color: lightgrey;">
-                <h1 class="jumbotron-heading bg-dark text-white"> Anjos Da Vida</h1>
-                <div class="row">
-
-                    <a onclick="openModal(this)" href="#" class="col-md-4">
-                        <div class="card m-2 shadow-sm">
-                            <img class="card-img-top" src="https://lh3.googleusercontent.com/Fln3XMFGpxqS_HmlIyjOE8gh-DuDuqvTRAY8n_e1QlLhWyMq0kopuNYDHXb6z9EQ3BtpSI0aTiw2oMrcAGo6y9EhElMMcX04iafIzURbG75MElfbODgkraxZOXDsxeFOOf39G0X0Ot8tFZyMfr7i7QqPc_uBm1pTnWT6t-9YKb8YuQayVuRjpm-ikZL3Ilcs9tnGyzY7Z8cUDrn5Yr_Cp9MrYHFup7rm2NfPpBVqxs9PHpIUvgs1QebrS_IL03BJkAAUZGf-u1j4exAwA3LKr2dj6TX9YuCfjYudlrieMCo0E3OcBMwJ6oSAkLlZDbjiM_YzG6nEHLAd7Tf4nt_f9rghdgu_2XEcAPvPFDnyOoyjMscWTX24Pm-5cs7KuQ67SCdUWZ5oHcZ0ZhQasexWNgepx9uKZwWQZb37e1wvtjjMxsqCWnOntDL8oGefvZn_1sceaCf8D8tZ2u8dyctF0M8L-MTsRhHQdeJr5cAxt83o8KA7e7fRJipDkBgrbahuQXLh0PA6hftQvdINwJFcteO9lHdDDDD5g3J5W1Na2rmtiGUaGbFKVMwTzIuMPze8hYh8NSoLp4ZVRZRymhr2sY7VapaIGFQLJI4G_laqfl1rCfwQC_GJCs3SBgpSfr9yJAwQdRoRLBZAU0aFOWwcCRo2J2gYrQAjbrXeWUfmUar2_Dda4trwAQ=w800-h450-no"
-                                data-holder-rendered="true">
-                            <div class="card-body">
-                                <p class="card-text">Tela de Principal</p>
-                            </div>
-                        </div>
-                    </a>
-
-                    <a onclick="openModal(this)" href="#" class="col-md-4">
-                        <div class="card m-2 shadow-sm">
-                            <img class="card-img-top" src="https://lh3.googleusercontent.com/5HmTBuZbnpYe2-8NBYUxhok1BNzVect_fvkNlTVkZb9RXSQSV3DhfZ-Iy_xQWD4dJ1CgkjJMy3nfAd-m3MdxmawmwbA0FEABjQNdAg6mrIHL9j20SfWrH1N0IXXsCVCGfJDKfezDWfDn9FCK-CQCLoOfbIKHkje6fBcNoo1O4yVTQMqCBsrjR-A8_bq3AXi51hI-_ieN4VS2KPdZ8KfEzVBdsNqK-ZQtC32Uw-usC9oeOH9qfR6C0ACG-lwLPjlwyIhIn0mnkhZ-qGllYDYX_ZirqjI883LM_WtWZL7W8d_F19K9AiaHEubOrtdK7QXgkSVwMj9-voqn12u6sQNl3rbMUge44RGs0ZMKP9uP-3QpdihcTp3muws-eSpFB4hAZeSIGWy-8Wu3o4N6c6ghHdx2c9rrXstGogOb6DSlwdULfK1hZoOcCcExD448B1QVT8NsPliEmY0GQGDl5GQr7s-gGkZ8FjQkcORzf60RrGOOcmiZ5kqdXhq18WBqSUDjrEw_VcKVbWFbS7voaXnVxGjEH_fC70_2Xrz8G21RuXnPHxmlBvGxsQgYBQ5zb1cKe8cMX6CatJ0GzOm22-wi-xFftKVl5msnXcXLs_F0IREw4mM_pJFIs3Y1L0PLeqKz-CMC20bDq-qymKY9_77wVYI-sKuVwZsK9Wt_tadv57dxdwNav9aCeQ=w800-h450-no"
-                                data-holder-rendered="true">
-                            <div class="card-body">
-                                <p class="card-text">Tela de visualização de tarefas</p>
-                            </div>
-                        </div>
-                    </a>
-
-                    <a onclick="openModal(this)" href="#" class="col-md-4">
-                        <div class="card m-2 shadow-sm">
-                            <img class="card-img-top" src="https://lh3.googleusercontent.com/JeEY4n8vgD8fk16rFQQJTond2qPz_lzOl1CkNjcY_kMIPmpppZQSGFVPX4hJJUW9u2oQXcmTSh7gAaGq71Qay6rNPrfEqNjMudZNqQfhxOfQ39bjdZY6_imJ_BknI5SIGKgyaWP2bk6HqpI7ota339rZo2GPgiB4KL8nErEKxvDm6pjSdWdTzsuc8pBdKV7L_xzNeQtS0YqRJV0_lnIEN-YlCzpMufy4zWvHgWuQvJCb_W0kXWLXYWCeQuaG5IJV9BEfncNeDHiRYwEo7ypf8hPLMKVHCFM1Jzs5PZ1LSiLyVZkgEcV5jBt7ZWmz-pyGW_hzt_sYyqR8tRWH46gzcqIntTqQGiPoFKjbm-e3ebQLnPr9mkX_rP0yfYtjTZaYmtCfznMuic47oPToRA0DEhSkHbvXL1cBCfT3qm7PpfTzYqpvJMi47mTpvZ4ulYfxoml3J1GYmLwexxU2Qv95QpJVoxqMudGuHMy-zPP32k6p88mLd7OrBFJzdfMA_4bPYM2LGGeFP01X4Os8HzHI-MdLr5vn13x0PXljVXGDr4RJVOmvI5VJlHo37eYBKULPhFY5NvOEywbLuNRvFjeDpAUH0xd2Im0sRIWdjy-FIXdQf_eyd2P8P0AT1OSzgR_UGbO5bT3fAqpxGLSYt8q4Y9lhbKVgT8kjyhJi5zXneQk27kXaid_AFQ=w800-h450-no"
-                                data-holder-rendered="true">
-                            <div class="card-body">
-                                <p class="card-text">Tela de cadastros dos alunos</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-
-            <div class="card mb-4 shadow-sm" style="background-color: lightgrey;">
-                <h1 class="jumbotron-heading bg-dark text-white"> Clínica Dr. Edísio</h1>
-                <div class="row">
-
-                    <a onclick="openModal(this)" href="#" class="col-md-4">
-                        <div class="card m-2 shadow-sm">
-                            <img class="card-img-top" src="https://lh3.googleusercontent.com/t2P0NFUg8hrVrH1gqWN2wOERVYzmeyEXSooU78nWGUPebrgj2ALxhEsjnqYZARysJrPXncFebtY1m2wz4ixXtD3ktwGMPeAmsLXYOtHWF8WsvkLRazfyHrAxP3MjEdHB0NeIi3SfPUnronTlzQcWWDbuJ0GR6epTvr4IzfCmHVAlHo5mvV4bTKQmgbuX1EUMYoiP3S5BmY7njHKA-l-urexQrANX7QQfpgOBB4vl-6jjBE6VPQaY5sDp6JM4QCEIzuN1Lez5XRF13ePgWQi9gHwBJe689wRa8YXPTKsifGEAXztTcWeX6P-fdDUyiwUzswZ6cMrVUDP7klc99yxEQ4wxQlDE5nOpkU0q15M2DOzBlK4vMBPySr280sTgCA8CaIFkeVsFHLZmcEXPoi-4B4zSoYEDoBVLY-eKH4ZWZ65XlvRS-Dcoeafpuo2U5bMkm9jhIsMiJ576ApxpQ2bmT7NFIIcul1cG5aQPIPDQfbmbl_40E5_owIvsnqmZjgHtzMccPmOQW8ThsiQdJ6uO9stpiEo_2dqtB-mGuR9anW3hJn89B7j-rE9UYvi8qWI9sxb9EpL5UUhOyrEEY3aCN5Ua-B49efv4-2Nh4KPTX0zNByg4WXh_vM36ZDNOke1BDQ073LEGNVvIrXU91XGSa8R8Uhb0rpV4h2K1C9bgqr_IkkKfl6Ek-g=w800-h450-no"
-                                data-holder-rendered="true">
-                            <div class="card-body">
-                                <p class="card-text">Tela de login</p>
-                            </div>
-                        </div>
-                    </a>
-
-                    <a onclick="openModal(this)" href="#" class="col-md-4">
-                        <div class="card m-2 shadow-sm">
-                            <img class="card-img-top" src="https://lh3.googleusercontent.com/npMrg-22SFotqZiAomjWChlIIcyBsl09qIhtOGQX-uT_KU7xDOEZVeaA0JRMxy08nqRbI5rVmkWs1vFY-OP2Df8yxCzdYto8FsCYpDLZwASfVCnbCMjnz77fOtEH4EO0F6jGVYCavpOiamLxcdmD37hHglvbe_8QZzlxZgeeTE0O44m4xDNzeTzqkEzA7idgxIvlruFPweYOsW74rYWGXPLGnTaeZsPjFmOXu0O3Fj2NL7b_Ois36dX7mJI19qr9yqRYsKR-TU9rYrfx1D03kG7YflRC-jg-v-t3T8GLHRyGMcdqkkuimhGXLYrFUl7CleSGu1pcDJZixoEtdCcfTJhmL2rBJbag1NYNh3SX4g66rvfFLvHcmj_a6OuiXq8qb-gu6ok35ZrXZFcvteDQrijzwZBE4vCdY8fBfBN-jyirm4W9s-qLYivThTYTdj5iJMweudOV2ddF1ZAPYLex0M8aNGWuM2ZnTO93wwysJ4g6pwvLyQV7AdujaSb_OQ_fR5sCFoNjfKpnuICQycfauqq8K35TpGPD6kA8zQdwrFUnEmWtt7qcxyCCQGW9UAXLkJXJtcX7bAPh_79mz1txXHm4sh2NnbURIMqJlXyIx9f-brugtFYJECHwdUt9NZeloTOLv7zSRPuNemnmx5CNSQRygjAmTfnxwwnxRbpC7h0E7ATuUmkX6w=w800-h450-no"
-                                data-holder-rendered="true">
-                            <div class="card-body">
-                                <p class="card-text">Tela de principal</p>
-                            </div>
-                        </div>
-                    </a>
-                    <a onclick="openModal(this)" href="#" class="col-md-4">
-                        <div class="card m-2 shadow-sm">
-                            <img class="card-img-top" src="https://lh3.googleusercontent.com/Gsua17hAqnfGE_Z6bdopCcijT8yA9m4d2nlERwSFo8o1CjhSXvfy4_VC4zk2yq3VaDYCtzikFUQfvCw4kzpSRf3t9S9l9lWwWeGtA_mOHBsiFNEawEhaaLwu1t5dnBO6nMC2c4hjtwrw-OQ7QvEtNLKNRZokch_6-qLqwIW55rKnnKul6dZRXqjso9u4q-0mAute24doV6PJcyFS1nibTQ1EVS5g-lJuuQIacAwS-JpdGhZJkOxlZpFerxrVEkBrPwzaGJ5noMibtlmDSnoEJ4bcs7kxp_QI-n1eAC6rsjnW_AB7vPEPWj6_gDqKHnWP7rjyg69TI38GrtnnsjWc-HWriySeD1qzIUDA2bn3hyWnAy5kt0UG0igrzu1PAmysz8oixwwpVJI4W-O4SXsJsBPwxLqf5s9tY3Tic3lBwU39QIr4T45yu2S9wqMOQtSeMRzxXNj83F0FBcYlU7nW6KC-jgcUQAIvlz3C8i4uZC9uzeTdyFHZ4v6Oc0FdSriyPr6LI2NSMtXsWqf8aC5HuN-0MIJyaJFvCUE7gTFBgQoaF64fyhB4gdZJybEVCOq8za9yfYegxpxConmbyYve6EBN2ft4s9WZNKCHG6vJshtAKjZ9K3d6-5rB-dz7h6sTMFdMh81UXc_D6v_BiDETEZhvIqt6lo6Ub_hufGB7YkXcT4udiwNmJQ=w800-h450-no"
-                                data-holder-rendered="true">
-                            <div class="card-body">
-                                <p class="card-text">Tela de visualização do paciente</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
+    <div id="projetos" class="container" \>
 </main>
 </body>
 
